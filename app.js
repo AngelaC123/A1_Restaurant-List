@@ -8,6 +8,9 @@ const port = 3000
 // Require template engine: handlebars
 const exphbs = require('express-handlebars')
 
+const restaurantList = require('./restaurant.json')
+
+
 // Set template enegine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -17,8 +20,10 @@ app.use(express.static('public'))
 
 // Set routes
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', { restaurant: restaurantList.results })
 })
+
+
 
 // Listen to the server
 app.listen(port, () => {
