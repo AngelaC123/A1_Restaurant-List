@@ -29,6 +29,18 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
 })
 
 
+app.get('/search', (req, res) => {
+
+  // if (!req.query.keywords) {
+  //   res.redirect('/')
+  // }
+
+  const keyword = req.query.keywords.trim().toLowerCase()
+  const restaurantSearchResults = restaurantList.results.filter((restaurant) => { return restaurant.name.toLowerCase().includes(keyword) || restaurant.category.toLowerCase().includes(keyword) })
+
+  res.render('index', { restaurant: restaurantSearchResults, keyword: keyword })
+})
+
 
 // Listen to the server
 app.listen(port, () => {
