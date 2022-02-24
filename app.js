@@ -23,6 +23,11 @@ app.get('/', (req, res) => {
   res.render('index', { restaurant: restaurantList.results })
 })
 
+app.get('/restaurants/:restaurant_id', (req, res) => {
+  const restaurantShow = restaurantList.results.find((restaurant) => restaurant.id.toString() === req.params.restaurant_id)
+  res.render('show', { restaurantShow: restaurantShow })
+})
+
 
 
 // Listen to the server
