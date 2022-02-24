@@ -5,9 +5,16 @@ const app = express()
 // Define server variables
 const port = 3000
 
+// Require template engine: handlebars
+const exphbs = require('express-handlebars')
+
+// Set template enegine
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+
 // Set routes
 app.get('/', (req, res) => {
-  res.send(`<h1>This is my restaurant list.</h1>`)
+  res.render('index')
 })
 
 // Listen to the server
