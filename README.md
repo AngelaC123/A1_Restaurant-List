@@ -1,8 +1,4 @@
 # Restaurant List
-<<<<<<< HEAD
-=======
-# Restaurant List
->>>>>>> c26965c40b5f8b38706cc966fba13bc583e604f4
 A simple restaurant list web application. Users can see the list of restaurants, check out detail of restaurants, and also fint out the location.
 
 ## Features
